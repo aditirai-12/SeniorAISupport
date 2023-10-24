@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "questions": "hello",
+      "answer": "Hi!"
+    },
+    {
+      "questions": "How are you?",
+      "answer": "Good how are you?"
+    },
+    {
+      "questions": "Are we friends?",
+      "answer": "maybe? "
+    },
+    {
+      "questions": "hey",
+      "answer": "Hi!"
+    },
+    {
+      "questions": "Hi",
+      "answer": "Hi!"
+    },
+    {
+      "questions": "good",
+      "answer": "coolio"
+    },
+    {
+      "questions": "heyyyyyyyyyyyyy",
+      "answer": "heyy"
+    },
+    {
+      "questions": "hi",
+      "answer": "hi"
+    },
+    {
+      "questions": "whats up",
+      "answer": "hey"
+    },
+    {
+      "questions": "sup",
+      "answer": "whats up"
+    },
+    {
+      "questions": "hfjj",
+      "answer": "hi"
+    },
+    {
+      "questions": "Im tired",
+      "answer": "me too"
+    },
+    {
+      "questions": "bye",
+      "answer": "good bye"
+    },
+    {
+      "questions": "im hungry",
+      "answer": "eat food"
+    }
+  ]
+}
