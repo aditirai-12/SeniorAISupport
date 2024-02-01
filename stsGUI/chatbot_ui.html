@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="\static\homepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <div id="fullChatBot">
-        <!--creates the overall square for the chatBot-->
-        <div id="cbSquare"></div>
-        <div id="chatBox"></div>
-        <div id="topSquare"></div>
-        <div id="bottomSquare"></div>
+    <div class="container" id="container" style="max-width: 1100px;">
+        <div id="fullChatBot">
+            <!--creates the overall square for the chatBot-->
+            <div id="cbSquare"></div>
+            <div id="chatBox"></div>
+            <div id="topSquare"></div>
+            <div id="bottomSquare"></div>
 
-        <!-- creates a text box to type message-->
-        <form id="textForm">
-            <input type="text" id="userTxt1" placeholder="Type your message">
-            <input type="submit" id="submitBtn" value="Enter">
-        </form>
-    </div>
-
-    <div id="testDiv">
-        
+            <!-- creates a text box to type message-->
+            <form id="textForm">
+                <input type="text" id="userTxt1" placeholder="Type your message">
+                <input type="submit" id="submitBtn" value="Enter">
+            </form>
+        </div>
+        <div id="testDiv"></div>
     </div>
 
 
@@ -74,10 +74,24 @@
         //this function will add the bots response
         function bot_addQuestion(question, bot_message){
             let message_history = document.getElementById("chatBox")
-        //  const bot_message = document.createElement("div");
 
-            //initializes the div element
-            bot_message.textContent = "Sorry, I don't have the answer yet";
+            $.ajax({
+                type: 'POST',
+                url: '/call_chatbot',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ 'data': question }),
+                success: function(response){
+                    // Handle the response here (if needed)
+                    bot_message.textContent = response
+                },
+                error: function(error){
+                    // Handle errors (if any)
+                    bot_message.textContent = "Sorry, I don't have the answer yet";
+                    console.log(error);
+                }
+            });
+
+            // Make an AJAX request to the Flask server
             bot_message.className = "botMessages";
             bot_message.id = "";
 
@@ -132,6 +146,6 @@
             animateTyping(); // Starts and loops the animation
         }
 
-    </script> 
+        </script> 
 </body>
 </html>
