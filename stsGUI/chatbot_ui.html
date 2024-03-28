@@ -32,13 +32,13 @@
         //triggerred when form is submitted
         form.addEventListener('submit', function(event){
             event.preventDefault(); //prevents the page from refreshing
-            get_question();
+            get_question(); 
         })
 
         //this function will retrieve the users question
         function get_question(){
             //retrieves and saves the users question into a variable
-            let userTextBox = document.getElementById("userTxt1")
+            let userTextBox = document.getElementById("userTxt1");
             let userQuestion = userTextBox.value;
             userTextBox.value = "";
 
@@ -49,7 +49,7 @@
             add_question(userQuestion);
 
             //sends question to the bot
-            bot_typing(userQuestion);
+            bot_addQuestion(userQuestion)
 
         }
 
@@ -72,43 +72,36 @@
         }
 
         //this function will add the bots response
-        function bot_addQuestion(question, bot_message){
+        function bot_addQuestion(question){
             let message_history = document.getElementById("chatBox")
+            const bot_message = document.createElement('div'); //element used to hold response
+            bot_typing(question, bot_message) //creates the typing bubble effect
+            
+            bot_message.className = "botMessages";
+            bot_message.id = "";
 
+            //calls the python function to activate and use the api
             $.ajax({
                 type: 'POST',
-                url: '/call_chatbot',
+               // url: '/call_chatbot',
+                url: '/hardware_info',
                 contentType: 'application/json;charset=UTF-8',
                 data: JSON.stringify({ 'data': question }),
                 success: function(response){
-                    // Handle the response here (if needed)
-                    bot_message.textContent = response
+                    bot_message.textContent = response //adds the response to the chat history
                 },
                 error: function(error){
-                    // Handle errors (if any)
+                    //handle errors (if any)
                     bot_message.textContent = "Sorry, I don't have the answer yet";
                     console.log(error);
                 }
             });
-
-            // Make an AJAX request to the Flask server
-            bot_message.className = "botMessages";
-            bot_message.id = "";
-
-            //adds the new question to the bottom of the chat
-            if(message_history.children.length > 0){
-                message_history.insertBefore(bot_message, message_history.children[0])
-            }
-            else{
-                message_history.appendChild(bot_message);
-            }
         }
 
         //this function will create the typing effect animation
-        function bot_typing(question){
+        function bot_typing(question, typingBubble){
             //retrieves and creates elements
             let message_history = document.getElementById("chatBox")
-            const typingBubble = document.createElement('div');
             const text = document.createElement('span');
 
             //initializes elements and adds typing bubble to main div
@@ -127,8 +120,6 @@
             function animateTyping() {
                 //delete node and leave function
                 if(rounds === 2){
-                    //message_history.removeChild(typingBubble);
-                    bot_addQuestion(question, typingBubble);
                     return;
                 }
                 text.textContent = dots[index];
