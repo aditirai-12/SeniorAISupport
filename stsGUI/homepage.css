@@ -7,31 +7,47 @@ html{
     background-color:#96d1c5;
 }
 
-/*creates shadow around chat bot*/
-div{
-    /* Apply shadow to left, right, and bottom sides */
-
+#container{
+    display: flex;
 }
+#fullChatBot{
+    float: right;
+}
+
+#testDiv{
+    float: right;
+    position:absolute;
+    top:0%;
+    left:0%;
+    height:100%;
+    width:25%;
+}
+
+@media screen and (max-width: 1100px) {
+    .container > div {
+      width: 100%;
+    }
+}
+
 
 /*creates the overall chatBot square design*/
 #cbSquare{
     position:absolute;
-    top:125px;
-    left:500px;
-    height:600px;
-    width:500px;
-    border-radius:15px;
+    top:0px;
+    left:25%;
+    height:100%;
+    width:75%;
     background-color:white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 }
 
 #chatBox{
     position:absolute;
-    top:210px;
-    left:500px;
-    min-height:430px;
-    max-height:430px;
-    width:500px;
+    top:85px;
+    left:25%;
+    min-height:75%;
+    max-height:75%;
+    width:75%;
     background-color:white;
     overflow-y:auto;
     display:flex;
@@ -40,49 +56,47 @@ div{
 
 #topSquare{
     position:absolute;
-    top:125px;
-    left:500px;
+    top:0px;
+    left:25%;
     height:85px;
-    width:500px;
-    border-radius:15px 15px 0px 0px;
+    width:75%;
     background-color:#4d8c7f;
 }
 
 #bottomSquare{
     position:absolute;
-    top:640px;
-    left:500px;
-    height:85px;
-    width:500px;
-    border-radius:0px 0px 15px 15px;
+    top:85%;
+    left:25%;
+    height:15%;
+    width:75%;
     background-color:lightgray;
 }
 
 /*sets position and design of text box*/
 #userTxt1{
     position:absolute;
-    top:660px;
-    left:510px;
-    height:40px;
-    width:360px;
+    top:90%;
+    left:27%;
+    height:5.5%;
+    width:57%;
     font-size:20px;
 }
 
 /*sets position and design of submit button*/
 #submitBtn{
     position:absolute;
-    top:663px;
-    left:890px;
-    height:40px;
-    width:100px;
+    top:90%;
+    left:87%;
+    height:5.5%;
+    width:10%;
     cursor:pointer;
 
     font-size:20px;
     color:#152622;
 
     border:2px solid #4d8c7f;
-    border-radius:5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     background-color:#96d1c5;
 }
 
@@ -94,7 +108,7 @@ div{
 .userMessages{
     left:350px;
     min-width:50px;
-    max-width:300px;
+    max-width:45%;
 
     background-color:#c7ede6;
     margin:5px 0;
@@ -104,13 +118,13 @@ div{
     align-self:flex-end;
 
     word-wrap:anywhere;
-    font-size:20px;
+    font-size:30px;
 }
 
 .botMessages{
     left:350px;
     min-width:50px;
-    max-width:300px;
+    max-width:45%;
 
     background-color:#dce6e4;
     margin:5px 0;
@@ -120,12 +134,13 @@ div{
     align-self:flex-start;
 
     word-wrap:anywhere;
-    font-size:20px;
+    font-size:30px;
 }
 
 /*changes design of the typing bubble*/
 #typingBubble{
-    max-height: 20px;
-    font-size:25px;
+    max-height: 30px;
+    font-size:30px;
     text-align:center;
 }
+
