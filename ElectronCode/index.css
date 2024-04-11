@@ -1,20 +1,24 @@
-label{
-    color:blue;
+@font-face {
+    font-family: 'appleFont';
+    src: url('SF-Mono.dmg') format('truetype');
+}
+
+#Accesibility-menu {
+    text-align: center;
 }
 
 /*changes background color*/
 html{
-    background-color:#96d1c5;
+    /*background-color:#96d1c5;*/
+    background-color: #aec0c7;
 }
 
-#container{
+#right_container{
     display: flex;
 }
-#fullChatBot{
-    float: right;
-}
 
-#testDiv{
+#left_container{
+    background-color: #aec0c7;
     float: right;
     position:absolute;
     top:0%;
@@ -37,8 +41,7 @@ html{
     left:25%;
     height:100%;
     width:75%;
-    background-color:white;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    background-color: #e6edf0;
 }
 
 #chatBox{
@@ -48,7 +51,7 @@ html{
     min-height:75%;
     max-height:75%;
     width:75%;
-    background-color:white;
+    background-color:#e6edf0;
     overflow-y:auto;
     display:flex;
     flex-direction:column-reverse;
@@ -60,7 +63,8 @@ html{
     left:25%;
     height:85px;
     width:75%;
-    background-color:#4d8c7f;
+    /*background-color:#4d8c7f;*/
+    background-color: #94a5ab;
 }
 
 #bottomSquare{
@@ -69,7 +73,7 @@ html{
     left:25%;
     height:15%;
     width:75%;
-    background-color:lightgray;
+    background-color:#94a5ab;
 }
 
 /*sets position and design of text box*/
@@ -94,10 +98,12 @@ html{
     font-size:20px;
     color:#152622;
 
-    border:2px solid #4d8c7f;
-    /*border-radius:5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
-    background-color:#96d1c5;
+   /* border:2px solid #4d8c7f;
+    background-color:#96d1c5;*/
+
+    border:2px solid #577499;
+    background-color:#aec0c7;
+
 }
 
 #submitBtn:hover{
@@ -110,14 +116,16 @@ html{
     min-width:50px;
     max-width:45%;
 
-    background-color:#c7ede6;
+    border:3px solid #577499;
+    background-color:#ced8db;
+
     margin:5px 0;
     padding:10px;
-    border:3px solid #6fa89c;
     border-radius:15px;
     align-self:flex-end;
 
     word-wrap:anywhere;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
     font-size:30px;
 }
 
@@ -126,21 +134,31 @@ html{
     min-width:50px;
     max-width:45%;
 
-    background-color:#dce6e4;
+    border:3px solid #577499;
+    background-color:#ced8db;
     margin:5px 0;
     padding:10px;
-    border:3px solid #6fa89c;
     border-radius:15px;
     align-self:flex-start;
 
     word-wrap:anywhere;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
     font-size:30px;
 }
 
 /*changes design of the typing bubble*/
 #typingBubble{
     max-height: 30px;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
     font-size:30px;
     text-align:center;
 }
 
+.custom-button {
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+/* Apply the custom font to text input placeholders with a class of 'custom-input' */
+.custom-input::placeholder {
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
