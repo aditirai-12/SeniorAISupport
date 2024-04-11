@@ -1,3 +1,12 @@
+let deviceInfo = " "; //will hold the device info
+
+window.electron.getDeviceInfo().then(response => {
+    deviceInfo = response; //gets the users device inforation
+}).catch(error => {
+    console.error("Error:", error);
+});
+
+//hold the textform info
 const form = document.getElementById('textForm');
 
 //triggerred when form is submitted
@@ -20,6 +29,9 @@ function get_question(){
 
     //adds the question to the chat
     add_question(userQuestion);
+
+    //adds the users device info to the user questions 
+    userQuestion = deviceInfo + ', ' + userQuestion; 
 
     // Call function from preload script to get bot response
     window.electron.getBotResponse(userQuestion).then(response => {

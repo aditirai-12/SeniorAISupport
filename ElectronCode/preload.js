@@ -1,12 +1,14 @@
 const { contextBridge, ipcRenderer } = require('electron');
 const OpenAI = require("openai");
+const os = require('os');
+const si = require('systeminformation');
 
 //preload script that will call the openai's api and send it's response back to 
 //the renderer index.js page to be displayed 
 contextBridge.exposeInMainWorld('electron', {
     getBotResponse: async (question) => {
         const openai = new OpenAI({
-            apiKey: "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",
+            apiKey: "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",
             dangerouslyAllowBrowser: true //double check !!
         });
 
@@ -15,9 +17,30 @@ contextBridge.exposeInMainWorld('electron', {
 
         const response = await openai.chat.completions.create({
             messages: [{ role: "system", content: gpt_assistant_prompt }, { "role": "user", "content": question }],
-            model: "gpt-3.5-turbo",
+            model: "ft:gpt-3.5-turbo-0125:fourcher-tech:steven:9CH9UwEV",
         });
 
         return response.choices[0].message;
+    },
+
+    getDeviceInfo: async () => {
+        let deviceInfo = ""; //will hold device model info 
+
+        //get OS information
+        const osInfo = {
+            platform: os.platform(),
+            release: os.release(),
+            type: os.type(),
+            arch: os.arch()
+        };
+
+        //retrieves the device make/model
+        const data = await si.system();
+        model = data.manufacturer + ' ' + data.model;
+
+        //concatonate the info and return it
+        deviceInfo = model + ', ' + osInfo.platform + ' os, release ' + osInfo.release;
+        return deviceInfo;
     }
+
 });
