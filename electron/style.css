@@ -1,0 +1,68 @@
+/* Ensure the container-fluid takes the full viewport height */
+.container-fluid {
+    min-height: 100vh;
+    background-color: #f7f7f7; /* Assuming this is the color you want for the whole background */
+    padding: 0; /* Remove padding if not needed */
+}
+
+#header {
+    background-color: #AAC9DD;
+
+}
+
+#left-panel {
+    background-color: #7ea1b8;
+}
+
+#Accesibility-menu {
+    text-align: center;
+}
+
+/* Flex styling for the chat container */
+#cbSquare {
+    background-color: #e9ecef; /* Adjust to the color you prefer */
+    padding: 0; /* Remove padding if not needed */
+    height: calc(100vh - 20px); /* Height adjusted to fit the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+#chatBox {
+    background-color: #FFFFFF; /* Adjust to the color you prefer */
+    border: 1px solid #ccc; /* Add border if you want */
+    box-shadow: none; /* Remove box-shadow */
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 0; /* Ensure no margin at the bottom */
+}
+
+#fullChatBot {
+    float: right;
+}
+/* Position the form at the bottom */
+#bottomSquare {
+    /* background-color: #d1d1d1; Adjust to the color you prefer */
+    padding: 10px;
+    border-top: 1px solid #ccc; /* Separate input area with a border */
+}
+
+#textForm input[type="text"], #textForm input[type="submit"] {
+    border: 1px solid #96d1c5;
+    border-radius: 4px;
+    margin: 0;
+}
+
+/* Adjust font sizes for consistency */
+body, input, button {
+    font-size: 16px; /* Adjust as needed */
+}
+
+/* Styling for user and bot messages to make them similar to the second picture */
+.userMessages, .botMessages {
+    background-color: #f1f1f1; /* Adjust to match the second picture */
+    border: 1px solid #ccc; /* Adjust if needed */
+    border-radius: 4px; /* Rounded corners like in the second picture */
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Adjust padding */
+    margin: 4px 0; /* Adjust margin between messages */
+}

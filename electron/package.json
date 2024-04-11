@@ -1,0 +1,30 @@
+{
+  "name": "tech-support-ai-chatbot",
+  "version": "1.0.0",
+  "description": "A tech support chatbot directed towards assisting senior citizens with technical issues",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aditirai-12/SeniorAISupport.git"
+  },
+  "keywords": [
+    "tech-support",
+    "ai",
+    "chatbot",
+    "senior-citizen-assistance",
+    "it-support"
+  ],
+  "author": "aditi-rai, asra-mohiuddin, trey-schmieder, mohammed-alghufaili",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aditirai-12/SeniorAISupport/issues"
+  },
+  "homepage": "https://github.com/aditirai-12/SeniorAISupport#readme",
+  "devDependencies": {
+    "electron": "^29.1.6"
+  }
+}
