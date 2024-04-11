@@ -6,6 +6,29 @@ window.electron.getDeviceInfo().then(response => {
     console.error("Error:", error);
 });
 
+//accesibility feature (theme change)
+/*document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
+    console.log('heyyy');
+
+    //get the label and button elements and switch the theme
+    var current_theme = document.getElementById('theme-source');
+    var button = document.getElementById('toggle-modes');
+    current_theme.textContent = "Current theme: Dark Mode";
+    button.textContent = "Light Mode";
+
+
+})*/
+
+document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
+    const isDarkMode = await window.darkMode.toggle()
+    document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
+})
+  
+document.getElementById('reset-to-system').addEventListener('click', async () => {
+    await window.darkMode.system()
+    document.getElementById('theme-source').innerHTML = 'System'
+})
+
 //hold the textform info
 const form = document.getElementById('textForm');
 
@@ -32,7 +55,7 @@ function get_question(){
 
     //adds the users device info to the user questions 
     userQuestion = deviceInfo + ', ' + userQuestion; 
-
+    console.log(userQuestion);
     // Call function from preload script to get bot response
     window.electron.getBotResponse(userQuestion).then(response => {
         bot_addQuestion(response.content) //adds the bots response

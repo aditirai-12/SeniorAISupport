@@ -8,7 +8,7 @@ const si = require('systeminformation');
 contextBridge.exposeInMainWorld('electron', {
     getBotResponse: async (question) => {
         const openai = new OpenAI({
-            apiKey: "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",
+            apiKey: "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",
             dangerouslyAllowBrowser: true //double check !!
         });
 
@@ -43,4 +43,9 @@ contextBridge.exposeInMainWorld('electron', {
         return deviceInfo;
     }
 
+});
+
+contextBridge.exposeInMainWorld('darkMode', {
+    toggle: () => ipcRenderer.invoke('dark-mode:toggle'),
+    system: () => ipcRenderer.invoke('dark-mode:system')
 });

@@ -1,7 +1,6 @@
 {
   "name": "electroncode",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -13,6 +12,11 @@
     "electron": "^29.2.0"
   },
   "dependencies": {
-    "openai": "^4.32.2"
-  }
+    "device-detector": "^1.0.2",
+    "express": "^4.19.2",
+    "openai": "^4.32.2",
+    "systeminformation": "^5.22.7",
+    "useragent": "^2.3.0"
+  },
+  "description": ""
 }

@@ -3,14 +3,24 @@
     src: url('SF-Mono.dmg') format('truetype');
 }
 
-#Accesibility-menu {
-    text-align: center;
+@media (prefers-color-scheme: dark) {
+    #left_container { background: #666; color: white; }
+    #topSquare { background: #666; color: white; }
+    #bottomSquare { background: #666; color: white; }
+    #cbSquare { background: #666; color: white; }
+    #chatBox { background: #666; color: white; }
+}
+  
+@media (prefers-color-scheme: light) {
+    #left_container { background: #aec0c7; color: black; }
+    #topSquare { background: #94a5ab; color: black; }
+    #bottomSquare { background: #94a5ab; color: black; }
+    #cbSquare { background: #e6edf0; color: black; }
+    #chatBox { background: #e6edf0; color: black; }
 }
 
-/*changes background color*/
-html{
-    /*background-color:#96d1c5;*/
-    background-color: #aec0c7;
+#Accesibility-menu {
+    text-align: center;
 }
 
 #right_container{
@@ -18,7 +28,7 @@ html{
 }
 
 #left_container{
-    background-color: #aec0c7;
+    text-align: center;
     float: right;
     position:absolute;
     top:0%;
@@ -41,7 +51,6 @@ html{
     left:25%;
     height:100%;
     width:75%;
-    background-color: #e6edf0;
 }
 
 #chatBox{
@@ -51,7 +60,6 @@ html{
     min-height:75%;
     max-height:75%;
     width:75%;
-    background-color:#e6edf0;
     overflow-y:auto;
     display:flex;
     flex-direction:column-reverse;
@@ -63,8 +71,6 @@ html{
     left:25%;
     height:85px;
     width:75%;
-    /*background-color:#4d8c7f;*/
-    background-color: #94a5ab;
 }
 
 #bottomSquare{
@@ -73,7 +79,6 @@ html{
     left:25%;
     height:15%;
     width:75%;
-    background-color:#94a5ab;
 }
 
 /*sets position and design of text box*/
@@ -97,9 +102,6 @@ html{
 
     font-size:20px;
     color:#152622;
-
-   /* border:2px solid #4d8c7f;
-    background-color:#96d1c5;*/
 
     border:2px solid #577499;
     background-color:#aec0c7;

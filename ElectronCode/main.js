@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen, ipcMain, nativeTheme } = require('electron')
 const path = require('path');
 
 app.whenReady().then(() => {
@@ -22,4 +22,17 @@ app.whenReady().then(() => {
 }).catch(error => {
     // Handle the error here
     console.error('Error occurred:', error);
+});
+
+ipcMain.handle('dark-mode:toggle', () => {
+    if (nativeTheme.shouldUseDarkColors) {
+      nativeTheme.themeSource = 'light'
+    } else {
+      nativeTheme.themeSource = 'dark'
+    }
+    return nativeTheme.shouldUseDarkColors
+  })
+
+  ipcMain.handle('dark-mode:system', () => {
+    nativeTheme.themeSource = 'system'
 });
