@@ -5,24 +5,20 @@
     padding: 0; /* Remove padding if not needed */
 }
 
-#header {
-    background-color: #AAC9DD;
-
-}
-
 #left-panel {
     background-color: #7ea1b8;
 }
 
 #Accesibility-menu {
+    padding-top: 5px;
     text-align: center;
 }
 
 /* Flex styling for the chat container */
 #cbSquare {
-    background-color: #e9ecef; /* Adjust to the color you prefer */
+    /* background-color: #e9ecef; Adjust to the color you prefer */
     padding: 0; /* Remove padding if not needed */
-    height: calc(100vh - 20px); /* Height adjusted to fit the viewport */
+    height: calc(100vh - 50px); /* Height adjusted to fit the viewport */
     display: flex;
     flex-direction: column;
 }
@@ -46,10 +42,22 @@
     border-top: 1px solid #ccc; /* Separate input area with a border */
 }
 
-#textForm input[type="text"], #textForm input[type="submit"] {
-    border: 1px solid #96d1c5;
-    border-radius: 4px;
-    margin: 0;
+#textForm {
+    display: flex;
+}
+
+#textForm input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    margin-right: -1px
+}
+
+#textForm input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #7ea1b8;
+    color: white;
+    border: 1px solid #7ea1b8;
+    border-left: none;
 }
 
 /* Adjust font sizes for consistency */
@@ -59,7 +67,7 @@ body, input, button {
 
 /* Styling for user and bot messages to make them similar to the second picture */
 .userMessages, .botMessages {
-    background-color: #f1f1f1; /* Adjust to match the second picture */
+    /*background-color: #f1f1f1;  Adjust to match the second picture */
     border: 1px solid #ccc; /* Adjust if needed */
     border-radius: 4px; /* Rounded corners like in the second picture */
     font-size: 14px; /* Smaller font size */
