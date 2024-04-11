@@ -45,7 +45,7 @@ function add_question(question){
 //this function will add the bots response
 function bot_addQuestion(question, bot_message){
     let message_history = document.getElementById("chatBox")
-  //  const bot_message = document.createElement("div");
+    const bot_message = document.createElement("div");
 
     //initializes the div element
     bot_message.textContent = "Sorry, I don't have the answer yet";
@@ -102,6 +102,3 @@ function bot_typing(question){
     }
     animateTyping(); // Starts and loops the animation
 }
-
-
-

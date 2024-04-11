@@ -1,6 +1,4 @@
-!pip install --upgrade openai wandb
-
-%env OPENAI_API_KEY= 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
+#%env OPENAI_API_KEY= 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
 
 import os
 import wandb
