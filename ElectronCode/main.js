@@ -24,6 +24,7 @@ app.whenReady().then(() => {
     console.error('Error occurred:', error);
 });
 
+//will toggle the theme from light to dark
 ipcMain.handle('dark-mode:toggle', () => {
     if (nativeTheme.shouldUseDarkColors) {
       nativeTheme.themeSource = 'light'
@@ -31,8 +32,4 @@ ipcMain.handle('dark-mode:toggle', () => {
       nativeTheme.themeSource = 'dark'
     }
     return nativeTheme.shouldUseDarkColors
-  })
-
-  ipcMain.handle('dark-mode:system', () => {
-    nativeTheme.themeSource = 'system'
 });

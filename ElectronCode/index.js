@@ -1,4 +1,5 @@
 let deviceInfo = " "; //will hold the device info
+let currentTheme = ''; //keeps track of the current theme 
 
 window.electron.getDeviceInfo().then(response => {
     deviceInfo = response; //gets the users device inforation
@@ -7,26 +8,18 @@ window.electron.getDeviceInfo().then(response => {
 });
 
 //accesibility feature (theme change)
-/*document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
-    console.log('heyyy');
-
-    //get the label and button elements and switch the theme
-    var current_theme = document.getElementById('theme-source');
-    var button = document.getElementById('toggle-modes');
-    current_theme.textContent = "Current theme: Dark Mode";
-    button.textContent = "Light Mode";
-
-
-})*/
-
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
-    const isDarkMode = await window.darkMode.toggle()
-    document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
-})
-  
-document.getElementById('reset-to-system').addEventListener('click', async () => {
-    await window.darkMode.system()
-    document.getElementById('theme-source').innerHTML = 'System'
+    var themeBtn = document.getElementById('toggle-dark-mode'); //gets the theme button 
+    const isDarkMode = await window.darkMode.toggle() //calls the theme change function
+    document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light' //changes the label
+
+    //Change the buttons text
+    if(isDarkMode ? 'Dark' : 'Light' == 'Dark'){
+        themeBtn.textContent = 'Light';
+    }
+    else{
+        themeBtn.textContent = 'Dark';
+    } 
 })
 
 //hold the textform info

@@ -13,9 +13,8 @@
     <div class="container" id="container" style="max-width: 1100px;">
         <div id="left_container">
             <h2 id="Accesbility-menu">Accesbility Options</h2>
-            <p>Current theme source: <strong id="theme-source">System</strong></p>
-            <button id="toggle-dark-mode">Toggle Dark Mode</button>
-            <button id="reset-to-system">Reset to System Theme</button>
+            <p id="themeLabel">Current theme: <strong id="theme-source">Light</strong></p>
+            <button class="buttons" id="toggle-dark-mode">Dark Mode</button>
         </div>
         <div id="right_container">
             <!--creates the overall square for the chatBot-->
@@ -27,7 +26,7 @@
             <!-- creates a text box to type message-->
             <form id="textForm">
                 <input type="text" id="userTxt1" placeholder="Type your message">
-                <input type="submit" class="buttons" id="submitBtn" value="Enter">
+                <input type="submit" id="submitBtn" value="Enter">
             </form>
         </div>
     </div>
