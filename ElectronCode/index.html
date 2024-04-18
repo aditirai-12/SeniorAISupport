@@ -13,14 +13,26 @@
     <div class="container" id="container" style="max-width: 1100px;">
         <div id="left_container">
             <h2 id="Accesbility-menu">Accesbility Options</h2>
-            <p id="themeLabel">Current theme: <strong id="theme-source">Light</strong></p>
-            <button class="buttons" id="toggle-dark-mode">Dark Mode</button>
+            <div id="theme_feature">
+                <p id="accesbilityLabel">Current theme: <strong id="theme-source">Light</strong></p>
+                <button class="buttons" id="toggle-dark-mode">Dark Mode</button>
+            </div>
+            <div id="fontChange_feature">
+                <p id="accesbilityLabel">Change font size</p>
+                <button class="buttons" id="fontIncrease">Increase Font</button>
+                <button class="buttons" id="fontDecrease">Decrease Font</button>
+            </div>
         </div>
         <div id="right_container">
             <!--creates the overall square for the chatBot-->
             <div id="cbSquare"></div>
             <div id="chatBox"></div>
-            <div id="topSquare"></div>
+            <div id="topSquare">
+                <!--adds the chatbot logo and title labels-->
+                <img id="logoImg" src="images_and_fonts/chatbot_Logo.png" alt="Steve Logo" width="70" height="70"> 
+                <h2 id="titleLabel1">Steve</h2>
+                <h2 id="titleLabel2">Friendly tech support chatbot</h2>
+            </div>
             <div id="bottomSquare"></div>
 
             <!-- creates a text box to type message-->

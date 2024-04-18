@@ -1,11 +1,20 @@
+//instantiates variables that will hold information
 let deviceInfo = " "; //will hold the device info
 let currentTheme = ''; //keeps track of the current theme 
+let currentFontLevel = 2; //holds the current font level
+let maxFontLevel = 6; //holds max font level
+let messageFont = 30; //hold current message font size
 
 window.electron.getDeviceInfo().then(response => {
     deviceInfo = response; //gets the users device inforation
+    console.log(deviceInfo)
 }).catch(error => {
     console.error("Error:", error);
 });
+
+//first message from the bot
+let firstMessage = "Hello, I am Steve your technical assistant. How can I help you today?";
+bot_addQuestion(firstMessage);
 
 //accesibility feature (theme change)
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
@@ -15,11 +24,73 @@ document.getElementById('toggle-dark-mode').addEventListener('click', async () =
 
     //Change the buttons text
     if(isDarkMode ? 'Dark' : 'Light' == 'Dark'){
-        themeBtn.textContent = 'Light';
+        themeBtn.textContent = 'Light Mode';
     }
     else{
-        themeBtn.textContent = 'Dark';
+        themeBtn.textContent = 'Dark Mode';
     } 
+});
+
+//accessibility feature (font increase)
+document.getElementById('fontIncrease').addEventListener('click', async () =>{
+    //get all elements with class name and id
+    var messageElemants = document.querySelectorAll('.userMessages, .botMessages');
+    var elements = document.querySelectorAll('#accesbilityLabel, .buttons, #Accesbility-menu, #theme-source, #submitBtn, #userTxt1');
+
+    //update the message elements
+    messageElemants.forEach(function(element) {
+        if(currentFontLevel <= maxFontLevel){
+            var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
+            var currentFontSize = parseFloat(computedFontSize);
+            var newFontSize = currentFontSize + 5; //increases font size by 5
+            element.style.fontSize = newFontSize + 'px'; //update font size
+        }
+    })
+
+    //updates the rest of the elements
+    elements.forEach(function(element) {
+        if(currentFontLevel <= maxFontLevel){
+            var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
+            var currentFontSize = parseFloat(computedFontSize);
+            var newFontSize = currentFontSize + 2; //increases font size by 2
+            element.style.fontSize = newFontSize + 'px'; //update font size
+        }
+    })
+
+    //updates font level and current message size
+    messageFont += 5;
+    currentFontLevel += 1; 
+});
+
+//accesibility feature (font decrease
+document.getElementById('fontDecrease').addEventListener('click', async () =>{
+    //get all elements with class name and id
+    var messageElemants = document.querySelectorAll('.userMessages, .botMessages');
+    var elements = document.querySelectorAll('#accesbilityLabel, .buttons, #Accesbility-menu, #theme-source, #submitBtn, #userTxt1');
+
+    //update the message elements
+    messageElemants.forEach(function(element) {
+        if(currentFontLevel >= 1){
+            var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
+            var currentFontSize = parseFloat(computedFontSize);
+            var newFontSize = currentFontSize - 5; //decreases font size by 5
+            element.style.fontSize = newFontSize + 'px'; //update font size
+        }
+    })
+
+    //updates the rest of the elements
+    elements.forEach(function(element) {
+        if(currentFontLevel >= 1){
+            var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
+            var currentFontSize = parseFloat(computedFontSize);
+            var newFontSize = currentFontSize - 2; //decreases font size by 2
+            element.style.fontSize = newFontSize + 'px'; //update font size
+        }
+    })
+
+    //updates font level and current message size
+    messageFont -= 5;
+    currentFontLevel -= 1; 
 })
 
 //hold the textform info
@@ -47,8 +118,8 @@ function get_question(){
     add_question(userQuestion);
 
     //adds the users device info to the user questions 
-    userQuestion = deviceInfo + ', ' + userQuestion; 
-    console.log(userQuestion);
+    userQuestion = 'on ' + deviceInfo + ', ' + userQuestion; 
+
     // Call function from preload script to get bot response
     window.electron.getBotResponse(userQuestion).then(response => {
         bot_addQuestion(response.content) //adds the bots response
@@ -67,6 +138,7 @@ function add_question(question){
     //initializes the div element
     message.textContent= question;
     message.className = "userMessages"
+    message.style.fontSize = messageFont + 'px'; //set font size
 
     //adds the new question to the bottom of the chat
     if(message_history.children.length > 0){
@@ -86,6 +158,7 @@ function bot_addQuestion(response){
             
     bot_message.className = "botMessages";
     bot_message.id = "";
+    bot_message.style.fontSize = messageFont + 'px'; //set font size
 
     bot_message.textContent = response; //adds the response to the chat history
 }

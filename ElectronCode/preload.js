@@ -8,7 +8,7 @@ const si = require('systeminformation');
 contextBridge.exposeInMainWorld('electron', {
     getBotResponse: async (question) => {
         const openai = new OpenAI({
-            apiKey: "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",
+            apiKey: "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",
             dangerouslyAllowBrowser: true //double check !!
         });
 
@@ -36,16 +36,15 @@ contextBridge.exposeInMainWorld('electron', {
 
         //retrieves the device make/model
         const data = await si.system();
-        model = data.manufacturer + ' ' + data.model;
+        model = data.manufacturer;// + ' ' + data.model;
 
         //concatonate the info and return it
-        deviceInfo = model + ', ' + osInfo.platform + ' os, release ' + osInfo.release;
+        deviceInfo = 'Currently on '+ model + ', ' + osInfo.platform + ' os, release ' + osInfo.release;
         return deviceInfo;
     }
 
 });
 
 contextBridge.exposeInMainWorld('darkMode', {
-    toggle: () => ipcRenderer.invoke('dark-mode:toggle'),
-    system: () => ipcRenderer.invoke('dark-mode:system')
+    toggle: () => ipcRenderer.invoke('dark-mode:toggle')
 });

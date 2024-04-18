@@ -1,32 +1,74 @@
 @font-face {
     font-family: 'appleFont';
-    src: url('SF-Mono.dmg') format('truetype');
+    src: url('images_and_fonts/SF-Mono.dmg') format('truetype');
 }
 
+/*color scheme for the dark theme*/
 @media (prefers-color-scheme: dark) {
-    #left_container { background: #666; color: white; }
-    #topSquare { background: #666; color: white; }
-    #bottomSquare { background: #666; color: white; }
-    #cbSquare { background: #666; color: white; }
-    #chatBox { background: #666; color: white; }
+    #left_container { background: #4d4c4c; color: white; }
+    #topSquare { background: #2e2e2e; color: white; }
+    #bottomSquare { background: #2e2e2e; color: white; }
+    #cbSquare { background: #404040; color: white; border-left: 2px solid #2e2e2e;}
+    #chatBox { background: #404040; color: white; border-left: 2px solid #2e2e2e;}
+    .userMessages { background: #636060; color: white; border:3px solid #6e6e6e;}
+    .botMessages { background: #524f4f; color: white; border:3px solid #6e6e6e;}
+    #submitBtn { background: #575757; color: white; border:3px solid #6e6e6e;}
+    .buttons { background: #404040; color: white; border:3px solid #575757;}
+    #userTxt1 { background: #6e6e6e; color: white; }
+    #userTxt1::placeholder {color: lightgray;}
+    #submitBtn:hover {background: #6e6e6e;}
+    .buttons:hover {background: #6e6e6e;}
 }
-  
+ 
+/*color scheme for the light theme */ 
 @media (prefers-color-scheme: light) {
     #left_container { background: #aec0c7; color: black; }
     #topSquare { background: #94a5ab; color: black; }
     #bottomSquare { background: #94a5ab; color: black; }
-    #cbSquare { background: #e6edf0; color: black; }
-    #chatBox { background: #e6edf0; color: black; }
+    #cbSquare { background: #f0f4f6; color: black; border-left: 2px solid #94a5ab}
+    #chatBox { background: #f0f4f6; color: black; border-left: 2px solid #94a5ab}
+    .userMessages { background: #e6edf0; color: black; border:3px solid #94a5ab;}
+    .botMessages { background: #ced8db; color: black; border:3px solid #94a5ab;}
+    #submitBtn { background: #c0cacc; color: black; border:3px solid #839195;}
+    .buttons { background: #c0cacc; color: black; border:3px solid #839195;}
+    #submitBtn:hover {background: #aec0c7;}
+    .buttons:hover {background: #94a5ab;}
 }
 
-#Accesibility-menu {
-    text-align: center;
+/*set the design for the accesiblity menu
+#Accesbility-menu {
+    position: absolute;
+    top: 5px; 
+    left: 20px; 
+}*/
+
+#themeLabel {
+   /* position: absolute;
+    top: 50px; 
+    left: 20px; */
+    font-size: 18px;
+}
+
+#theme-source{
+    /*position: absolute;
+    top: 0px; 
+    left: 130px; */
+    font-size: 18px;
+}
+
+#toggle-dark-mode{
+  /*  position: absolute;
+    top: 100px; 
+    left:20px;*/
+    width: 30%;
+    height: 5%;
 }
 
 #right_container{
     display: flex;
 }
 
+/*edit the design of the left div*/
 #left_container{
     text-align: center;
     float: right;
@@ -35,6 +77,13 @@
     left:0%;
     height:100%;
     width:25%;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+/*edit the input text box*/
+#userTxt1{
+    border: 0px;
+    border-radius: 6px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -42,7 +91,6 @@
       width: 100%;
     }
 }
-
 
 /*creates the overall chatBot square design*/
 #cbSquare{
@@ -66,6 +114,7 @@
 }
 
 #topSquare{
+    display: flex;
     position:absolute;
     top:0px;
     left:25%;
@@ -91,7 +140,7 @@
     font-size:20px;
 }
 
-/*sets position and design of submit button*/
+/*sets position and design of the submit button*/
 #submitBtn{
     position:absolute;
     top:90%;
@@ -99,27 +148,14 @@
     height:5.5%;
     width:10%;
     cursor:pointer;
-
     font-size:20px;
-    color:#152622;
-
-    border:2px solid #577499;
-    background-color:#aec0c7;
-
-}
-
-#submitBtn:hover{
-    background-color: #6fa89c;
 }
 
 /*changes design of user chat messages*/
 .userMessages{
     left:350px;
     min-width:50px;
-    max-width:45%;
-
-    border:3px solid #577499;
-    background-color:#ced8db;
+    max-width:50%;
 
     margin:5px 0;
     padding:10px;
@@ -128,16 +164,13 @@
 
     word-wrap:anywhere;
     font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
-    font-size:30px;
 }
 
 .botMessages{
     left:350px;
     min-width:50px;
-    max-width:45%;
+    max-width:50%;
 
-    border:3px solid #577499;
-    background-color:#ced8db;
     margin:5px 0;
     padding:10px;
     border-radius:15px;
@@ -145,7 +178,6 @@
 
     word-wrap:anywhere;
     font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
-    font-size:30px;
 }
 
 /*changes design of the typing bubble*/
@@ -156,6 +188,31 @@
     text-align:center;
 }
 
+/*changes title labels font size and design*/
+#titleLabel1{
+    position: relative;
+    top: -50%;
+    left: 2%;
+    font-size: 70px;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+    color: #38474d;
+    border-radius: 2px;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+#titleLabel2{
+    position: relative;
+    top: 40%;
+    left: 3%;
+    font-size: 25px;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+/*change image position*/
+#logoImg{
+    position: relative;
+    top: 7%;
+    left: 1%;
+}
 .custom-button {
     font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
 }
