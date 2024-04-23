@@ -8,7 +8,7 @@ const si = require('systeminformation');
 contextBridge.exposeInMainWorld('electron', {
     getBotResponse: async (question) => {
         const openai = new OpenAI({
-            apiKey: "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",
+            apiKey: "sk-proj-MZ1hke4vNaRVzgmsYtcvT3BlbkFJ4sPSBkxULtktzQ8uQlqz",
             dangerouslyAllowBrowser: true //double check !!
         });
 
@@ -17,7 +17,7 @@ contextBridge.exposeInMainWorld('electron', {
 
         const response = await openai.chat.completions.create({
             messages: [{ role: "system", content: gpt_assistant_prompt }, { "role": "user", "content": question }],
-            model: "ft:gpt-3.5-turbo-0125:fourcher-tech:thirdtry3:9CynSjtj",
+            model: "ft:gpt-3.5-turbo-0125:fourcher-tech:4-22-24:9GiOf6sC",
         });
 
         return response.choices[0].message;
