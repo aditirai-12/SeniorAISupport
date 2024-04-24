@@ -14,8 +14,8 @@
     .botMessages { background: #524f4f; color: white; border:3px solid #6e6e6e;}
     #submitBtn { background: #575757; color: white; border:3px solid #6e6e6e;}
     .buttons { background: #404040; color: white; border:3px solid #575757;}
-    #titleLabel { color: white; }
-    #titleSpan { color: white; }
+    #titleLabel { color: white; object-fit: contain; font-size: 320%; text-align: left;}
+    #titleSpan { color: white;object-fit: contain;font-size: 45%;}
     #userTxt1 { background: #6e6e6e; color: white; }
     #userTxt1::placeholder {color: lightgray;}
     #submitBtn:hover {background: #6e6e6e;}
@@ -85,8 +85,10 @@ h1 em {
 
 #logoImg{
     position: relative;
-    top: 25%;
+    top: 15%;
     left: 1%;
+    max-width: 100px;
+    object-fit: contain;
 }
 
 #themeLabel {
