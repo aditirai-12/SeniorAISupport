@@ -10,7 +10,7 @@ let typingInterval = null; //will keep the status of the typing bubble
 //will call the preload.js file to retrieve the users device info
 window.electron.getDeviceInfo().then(response => {
     deviceInfo = response; //gets the users device inforation
-    console.log(deviceInfo)
+    console.log(deviceInfo);
 }).catch(error => {
     console.error("Error:", error);
 });
@@ -143,8 +143,9 @@ async function get_question(){
         clearInterval(typingInterval); //will stop typing bubble
         bot_message.textContent = response.content;
     }).catch(error => {
+        clearInterval(typingInterval); //will stop typing bubble
         console.error("Error:", error);
-        bot_addQuestion("I'm sorry, I don't know the answer.")
+        bot_message.textContent = "I'm sorry, I don't know the answer.";
     });
 }
 
