@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steve</title>
+
+    <!--Links the css and javascript pages-->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="container" style="max-width: 1100px;">
+        <div id="left_container">
+            <div id="topDiv">
+                <h2 id="Accesbility-menu">Accesbility Options</h2>
+                <div id="theme_feature">
+                    <p class="topLeftlabels" id="accesbilityLabel">Current theme: <strong id="theme-source">Light</strong></p>
+                    <button class="buttons" id="toggle-dark-mode">Dark Mode</button>
+                </div>
+                <div id="fontChange_feature">
+                    <p class="topLeftlabels" id="accesbilityLabel2">Change font size</p>
+                    <button class="buttons" id="fontIncrease">Increase Font</button>
+                    <button class="buttons" id="fontDecrease">Decrease Font</button>
+                </div>
+            </div>
+            <div id="introLabel">
+                <h2 id="topLabel">Meet Steve!</h2>
+                <label id="bottomLabel" style="display: block;">Your helpful and approachable tech support companion, ready to assist you with any questions or concerns you may have.</label>
+            </div>
+        </div>
+        <div id="right_container">
+            <!--creates the overall square for the chatBot-->
+            <div id="cbSquare"></div>
+            <div id="chatBox"></div>
+            <div id="topSquare" class="two">
+                <img id="logoImg" src="images_and_fonts/chatbot_Logo.png" alt="Steve Logo" width="90" height="90">
+                <h1 id="titleLabel">Steve
+                    <span id="titleSpan">Tech support chatbot</span>
+                </h1>
+            </div>
+            <div id="bottomSquare"></div>
+
+            <!-- creates a text box to type message-->
+            <form id="textForm">
+                <input type="text" id="userTxt1" placeholder="Type your message">
+                <input type="submit" id="submitBtn" value="Enter">
+            </form>
+        </div>
+    </div>
+
+
+    <!--Links the javascript for the UI functionality-->
+    <script src="index.js"></script>
+</body>
+</html>

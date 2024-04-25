@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'appleFont';
+    src: url('images_and_fonts/SF-Mono.dmg') format('truetype');
+}
+
+/*stop a scroll from forming on the botton when switched to dark mode*/
+html, body {
+    overflow: hidden;
+}
+
+
+/*color scheme for the dark theme*/
+@media (prefers-color-scheme: dark) {
+    #left_container {background: radial-gradient(circle at bottom, #2e2e2e, #878787)};
+    #left_container::before {background: radial-gradient(circle at bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));}
+    #topDiv {color: white;}
+    #introLabel {color:white; background-color: #878787; border-radius: 10px; box-shadow: 0px 0px 22px -8px #a1a1a1;}
+    #topSquare { background: #2e2e2e; color: white; }
+    #bottomSquare { background: #2e2e2e; color: white; }
+    #cbSquare { background: #404040; color: white; border-left: 2px solid #2e2e2e;}
+    #chatBox { background: #404040; color: white; border-left: 2px solid #2e2e2e;}
+    .userMessages { background: #636060; color: white; border:3px solid #6e6e6e;}
+    .botMessages { background: #524f4f; color: white; border:3px solid #6e6e6e;}
+    #submitBtn { background: #575757; color: white; border:3px solid #6e6e6e;}
+    .buttons { background: #404040; color: white; border:3px solid #575757;}
+    #titleLabel { color: white; object-fit: contain; font-size: 320%; text-align: left;}
+    #titleSpan { color: white;object-fit: contain;font-size: 45%;}
+    #userTxt1 { background: #6e6e6e; color: white; }
+    #userTxt1::placeholder {color: lightgray;}
+    #submitBtn:hover {background: #6e6e6e;}
+    .buttons:hover {background: #6e6e6e;}
+    #logoImg {filter: brightness(0) invert(1);}
+}
+ 
+/*color scheme for the light theme */ 
+@media (prefers-color-scheme: light) {
+    #left_container {background: radial-gradient(circle at bottom, #94a5ab, #e6edf0)};
+    #left_container::before {background: radial-gradient(circle at bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); color: black;;}
+    #introLabel {background-color: #c0cdd3; border-radius: 10px; box-shadow: 0px 0px 22px -8px #4d4c4c;}
+    #topSquare { background: #94a5ab; color: black; }
+    #bottomSquare { background: #94a5ab; color: black; }
+    #cbSquare { background: #f0f4f6; color: black;}; /* border-left: 2px solid #94a5ab}*/
+    #chatBox { background: #f0f4f6; color: black;}; /* border-left: 2px solid #94a5ab}*/
+    .userMessages { background: #e6edf0; color: black; border:3px solid #94a5ab;}
+    .botMessages { background: #ced8db; color: black; border:3px solid #94a5ab;}
+    #submitBtn { background: #c0cacc; color: black; border:3px solid #839195;}
+    .buttons { background: #c0cacc; color: black; border:3px solid #839195;}
+    #submitBtn:hover {background: #aec0c7;}
+    .buttons:hover {background: #94a5ab;}
+}
+
+#topDiv{
+    position: relative;
+    left: 7%;
+    height: 65%;
+    width: 75%;
+    padding-left: 5%;
+    padding-right: 5%;
+  /*  background-color: #e6edf0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 22px -8px #4d4c4c;*/
+}
+
+#Accesbility-menu{
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+
+.topLeftlabels{
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#accesbilityLabel{
+    position: absolute;
+    left: 1%;
+}
+
+#theme-source{
+    font-size: 18px;
+}
+
+#toggle-dark-mode{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+}
+
+#accesbilityLabel2{
+    position: absolute;
+    top: 30%;
+    left: 1%;
+}
+
+#fontIncrease{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+ 
+#fontDecrease{
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+
+ 
+ #toggle-dark-mode{
+     width: 30%;
+     height: 5%;
+ }
+
+ /*create the box around the info portion on the left side*/
+#introLabel{
+    position: relative;
+    top: 2%;
+    left: 7%;
+    height: 25%;
+    width: 75%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/*will edit the "Meet Steve" Portion*/
+#topLabel{
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    top: -5%;
+    left: 22%;
+    font-size: 30px;
+}
+
+/*edit the rest of the info sentence*/
+#bottomLabel{
+    position: absolute;
+    top: 25%;
+    left: -1%;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+    font-weight: 300;
+    font-size: 25px;
+}
+
+/*fix the design of the title*/
+h1 {
+    position: relative;
+    padding:0%;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 60px;
+    color: #080808;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    top: 25%;
+    left: 1%;
+}
+
+h1 span {
+    position: relative;
+    top: -15%;
+    left: 1%;
+    display: block;
+    font-size: 0.5em;
+    line-height: 1.3;
+}
+
+h1 em {
+    font-style: normal;
+    font-weight: 600;
+}
+
+.two h1 {
+    text-transform: capitalize;
+}
+
+.two h1 span {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 3em;
+    padding-left: 0.25em;
+    color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 10px;
+}
+
+#logoImg{
+    position: relative;
+    top: 15%;
+    left: 1%;
+    max-width: 100px;
+    object-fit: contain;
+}
+
+#right_container{
+    display: flex;
+}
+
+/*edit the design of the left div*/
+#left_container{
+    text-align: center;
+    float: right;
+    position:absolute;
+    top:0%;
+    left:0%;
+    height:100%;
+    width:25%;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+/*edit the input text box*/
+#userTxt1{
+    border: 0px;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 1100px) {
+    .container > div {
+      width: 100%;
+    }
+}
+
+/*creates the overall chatBot square design*/
+#cbSquare{
+    position:absolute;
+    top:0px;
+    left:25%;
+    height:100%;
+    width:75%;
+}
+
+#chatBox{
+    position:absolute;
+    top:85px;
+    left:25%;
+    min-height:75%;
+    max-height:75%;
+    width:75%;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column-reverse;
+}
+
+#topSquare{
+    display: flex;
+    position:absolute;
+    top:0px;
+    left:25%;
+    height:15%;
+    width:75%;
+}
+
+#bottomSquare{
+    position:absolute;
+    top:85%;
+    left:25%;
+    height:15%;
+    width:75%;
+}
+
+/*sets position and design of text box*/
+#userTxt1{
+    position:absolute;
+    top:90%;
+    left:27%;
+    height:5.5%;
+    width:57%;
+    font-size:20px;
+}
+
+/*sets position and design of the submit button*/
+#submitBtn{
+    position:absolute;
+    top:90%;
+    left:87%;
+    height:5.5%;
+    width:10%;
+    cursor:pointer;
+    font-size:20px;
+}
+
+/*changes design of user chat messages*/
+.userMessages{
+    left:350px;
+    min-width:50px;
+    max-width:50%;
+
+    margin:5px 0;
+    padding:10px;
+    border-radius:15px;
+    align-self:flex-end;
+
+    word-wrap:anywhere;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+.botMessages{
+    left:350px;
+    min-width:50px;
+    max-width:50%;
+
+    margin:5px 0;
+    padding:10px;
+    border-radius:15px;
+    align-self:flex-start;
+
+    word-wrap:anywhere;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+/*changes design of the typing bubble*/
+#typingBubble{
+    max-height: 30px;
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+    font-size:30px;
+    text-align:center;
+}
+
+.custom-button {
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
+
+/* Apply the custom font to text input placeholders with a class of 'custom-input' */
+.custom-input::placeholder {
+    font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
+}
