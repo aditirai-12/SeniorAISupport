@@ -69,6 +69,7 @@ document.getElementById('fontIncrease').addEventListener('click', async () =>{
             var currentFontSize = parseFloat(computedFontSize);
             var newFontSize = currentFontSize + 0.5; //increases font size by 2
             element.style.fontSize = newFontSize + 'px'; //update font size
+            console.log(smallerCurrentFont)
         }
     })
 
@@ -78,7 +79,7 @@ document.getElementById('fontIncrease').addEventListener('click', async () =>{
         currentFontLevel += 1;
         if(currentFontLevel != 7){
             smallerCurrentFont += 1;
-            console.log(smallerCurrentFont)
+            console.log('inc: ' + smallerCurrentFont + ' ' + currentFontLevel)
         }
     }
 });
@@ -125,9 +126,9 @@ document.getElementById('fontDecrease').addEventListener('click', async () =>{
         messageFont -= 5;
         currentFontLevel -= 1; 
 
-        if(currentFontLevel != 7 & smallerCurrentFont > 1){
+        if(currentFontLevel != 6 & smallerCurrentFont > 1){
             smallerCurrentFont -= 1;
-            console.log(smallerCurrentFont)
+            console.log('dec' + smallerCurrentFont)
         }
     }
 })
