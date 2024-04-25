@@ -62,10 +62,13 @@ html, body {
 }
 
 #Accesbility-menu{
+    position: absolute;
+    left:2%;
     font-family: 'appleFont', sans-serif; /*changes to the readbale apple font*/
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 25px;
+    padding: 0;
 }
 
 .topLeftlabels{
@@ -76,42 +79,43 @@ html, body {
 
 #accesbilityLabel{
     position: absolute;
-    left: 1%;
+    top: 10%;
+    left: -4%;
 }
 
 #theme-source{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #toggle-dark-mode{
     position: absolute;
     top: 20%;
-    left: 25%;
+    left: 5%;
+    width: 40%;
+    height: 8%;
 }
 
 #accesbilityLabel2{
     position: absolute;
-    top: 30%;
-    left: 1%;
+    top: 35%;
+    left: -4%;
 }
 
 #fontIncrease{
     position: absolute;
-    top: 40%;
-    left: 40%;
+    top: 45%;
+    left: 55%;
+    width: 40%;
+    height: 8%;
 }
  
 #fontDecrease{
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 5%;
+    width: 40%;
+    height: 8%;
 }
-
- 
- #toggle-dark-mode{
-     width: 30%;
-     height: 5%;
- }
 
  /*create the box around the info portion on the left side*/
 #introLabel{

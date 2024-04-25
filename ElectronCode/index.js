@@ -2,7 +2,8 @@
 let deviceInfo = " "; //will hold the device info
 let currentTheme = ''; //keeps track of the current theme 
 let currentFontLevel = 3; //holds the current font level
-let maxFontLevel = 6; //holds max font level
+let maxFontLevel = 7; //holds max font level
+let smallerCurrentFont = 3;
 let messageFont = 30; //hold current message font size
 const form = document.getElementById('textForm'); //hold the textform info
 let typingInterval = null; //will keep the status of the typing bubble
@@ -38,7 +39,8 @@ document.getElementById('toggle-dark-mode').addEventListener('click', async () =
 document.getElementById('fontIncrease').addEventListener('click', async () =>{
     //get all elements with class name and id
     var messageElemants = document.querySelectorAll('.userMessages, .botMessages');
-    var elements = document.querySelectorAll('#accesbilityLabel, .buttons, #Accesbility-menu, #theme-source, #submitBtn, #userTxt1, #topLabel, #bottomLabel');
+    var elements = document.querySelectorAll('#accesbilityLabel, .buttons, #Accesbility-menu, #theme-source, #submitBtn, #userTxt1, #accesbilityLabel2');
+    var smallerElements = document.querySelectorAll('#topLabel, #bottomLabel')
 
     //update the message elements
     messageElemants.forEach(function(element) {
@@ -55,6 +57,16 @@ document.getElementById('fontIncrease').addEventListener('click', async () =>{
         if(currentFontLevel < maxFontLevel){
             var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
             var currentFontSize = parseFloat(computedFontSize);
+            var newFontSize = currentFontSize + 1; //increases font size by 2
+            element.style.fontSize = newFontSize + 'px'; //update font size
+        }
+    })
+
+    //updates the rest of the elements
+    smallerElements.forEach(function(element) {
+        if(smallerCurrentFont < (maxFontLevel-1)){
+            var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
+            var currentFontSize = parseFloat(computedFontSize);
             var newFontSize = currentFontSize + 0.5; //increases font size by 2
             element.style.fontSize = newFontSize + 'px'; //update font size
         }
@@ -64,7 +76,10 @@ document.getElementById('fontIncrease').addEventListener('click', async () =>{
         //updates font level and current message size
         messageFont += 5;
         currentFontLevel += 1;
-        console.log(currentFontLevel)
+        if(currentFontLevel != 7){
+            smallerCurrentFont += 1;
+            console.log(smallerCurrentFont)
+        }
     }
 });
 
@@ -72,7 +87,8 @@ document.getElementById('fontIncrease').addEventListener('click', async () =>{
 document.getElementById('fontDecrease').addEventListener('click', async () =>{
     //get all elements with class name and id
     var messageElemants = document.querySelectorAll('.userMessages, .botMessages');
-    var elements = document.querySelectorAll('#accesbilityLabel, .buttons, #Accesbility-menu, #theme-source, #submitBtn, #userTxt1, #topLabel, #bottomLabel');
+    var elements = document.querySelectorAll('#accesbilityLabel, .buttons, #Accesbility-menu, #theme-source, #submitBtn, #userTxt1, #accesbilityLabel2');
+    var smallerElements = document.querySelectorAll('#topLabel, #bottomLabel')
 
     //update the message elements
     messageElemants.forEach(function(element) {
@@ -89,7 +105,17 @@ document.getElementById('fontDecrease').addEventListener('click', async () =>{
         if(currentFontLevel > 1){
             var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
             var currentFontSize = parseFloat(computedFontSize);
-            var newFontSize = currentFontSize - 0.5; //decreases font size by 2
+            var newFontSize = currentFontSize - 1; //decreases font size by 2
+            element.style.fontSize = newFontSize + 'px'; //update font size
+        }
+    })
+
+    //updates the rest of the elements
+    smallerElements.forEach(function(element) {
+        if(currentFontLevel != 6 && currentFontLevel > 1){
+            var computedFontSize = window.getComputedStyle(element).fontSize; //get current font size
+            var currentFontSize = parseFloat(computedFontSize);
+            var newFontSize = currentFontSize - 0.5; //increases font size by 2
             element.style.fontSize = newFontSize + 'px'; //update font size
         }
     })
@@ -98,8 +124,11 @@ document.getElementById('fontDecrease').addEventListener('click', async () =>{
         //updates font level and current message size
         messageFont -= 5;
         currentFontLevel -= 1; 
-        console.log(currentFontLevel)
 
+        if(currentFontLevel != 7 & smallerCurrentFont > 1){
+            smallerCurrentFont -= 1;
+            console.log(smallerCurrentFont)
+        }
     }
 })
 
