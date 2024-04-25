@@ -21,6 +21,7 @@
     #submitBtn:hover {background: #6e6e6e;}
     .buttons:hover {background: #6e6e6e;}
     #logoImg {filter: brightness(0) invert(1);}
+    #introLabel {background-color: #6e6e6e;}
 }
  
 /*color scheme for the light theme */ 
@@ -38,6 +39,9 @@
     .buttons { background: #c0cacc; color: black; border:3px solid #839195;}
     #submitBtn:hover {background: #aec0c7;}
     .buttons:hover {background: #94a5ab;}
+    #titleLabel { object-fit: contain; font-size: 320%; text-align: left;}
+    #titleSpan { object-fit: contain;font-size: 45%;}
+    #introLabel{ background-color: #c0cdd3;}
 }
 
 #topDiv{
@@ -74,7 +78,6 @@
     width: 75%;
     padding-left: 5%;
     padding-right: 5%;
-    background-color: #c0cdd3;
     border-radius: 10px;
     box-shadow: 0px 0px 22px -8px #4d4c4c;
 }
